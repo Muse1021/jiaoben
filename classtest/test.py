@@ -2,15 +2,23 @@
 from __future__ import division
 a = [12,3,21,33,109,15]
 def maopao(arr):
+    # lens = len(arr)
+    # for i in range(lens):
+    #     j=i+1
+    #     for  j in range(lens):
+    #         if arr[i] < arr[j]:
+    #             # n = arr[i]
+    #             # arr[i] = arr[j]
+    #             # arr[j] = n
+    #             arr[i],arr[j] = arr[j],arr[i]
     lens = len(arr)
+    print(lens)
     for i in range(lens):
-        j=i+1
-        for  j in range(lens):
-            if arr[i] < arr[j]:
-                # n = arr[i]
-                # arr[i] = arr[j]
-                # arr[j] = n
-                arr[i],arr[j] = arr[j],arr[i]
+        for j in range(i,lens):
+            if arr[j]>arr[i]:
+                bak = arr[i]
+                arr[i] = arr[j]
+                arr[j] = bak
     return arr
 def quickSort(L, low, high):
     i = low
@@ -39,4 +47,4 @@ def chufa():
     fenmu = int(raw_input("fenmu: "))
     fenzi = int(raw_input("fenzi: "))
     print fenmu/fenzi
-chufa()
+print maopao(a)
