@@ -1,27 +1,38 @@
 __author__ = 'Muse'
-import os
-import re
-timelist =[]
-for i in range(4):
-    os.system("adb shell pm clear com.qihoo.appstore")
-    b= os.popen("adb shell am start -W -n com.qihoo.appstore/com.qihoo.appstore.home.MainActivity | findstr ThisTime")
-    a = re.findall(r"\d+",b.read())
-    timelist.append(int(a[0]))
-print(timelist)
-max = 0
-min = timelist[0]
-sums = 0
-for times in timelist:
-    if times >= max:
-        max = times
-    if times < min:
-        min = times
-    sums += times
-print "max: ",max
-print "min: ",min
-print "sum: ",sums
-avg = (sums -(max+min))/2
-print avg
+import os,re
+from time import sleep
+
+class count_time():
+    def __init__(self,apk_name="com.cleanmaster.mguard_cn",app_activity="com.cleanmaster.mguard_cn/com.keniu.security.main.MainActivity",times = 5,type=""):
+        self.apk_name = apk_name
+        self.app_activity = app_activity
+        self.times = times
+        self.type = type
+    def settype
+    def forcestop_tiem(self):
+        if type ==""
+        timelist =[]
+        for i in range(self.times):
+            sleep(4)
+            os.system("adb shell am force-stop com.cleanmaster.mguard_cn")
+            b= os.popen("adb shell am start -W -n com.cleanmaster.mguard_cn/com.keniu.security.main.MainActivity | findstr ThisTime")
+            a = re.findall(r"\d+",b.read())
+            timelist.append(int(a[0]))
+        print(timelist)
+        max = 0
+        min = timelist[0]
+        sums = 0
+        for times in timelist:
+            if times >= max:
+                max = times
+            if times < min:
+                min = times
+            sums += times
+        print "max: ",max
+        print "min: ",min
+        print "sum: ",sums
+        avg = (sums -(max+min))/2
+        print avg
 
 # SEARCH_PAT = re.compile(r'TotalTime\s*:\s*(\d+)')
 # pat_search = SEARCH_PAT.search(a)
