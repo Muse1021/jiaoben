@@ -1,12 +1,13 @@
-import subprocess,time
+import os,subprocess,time
 filename = "D:\log.txt"
 log_file = "D:\log2.txt"
 logcat_file = open(filename, 'w')
 
 logcmd = "adb logcat -v time"
 Poplog = subprocess.Popen(logcmd,stdout=logcat_file,stderr=subprocess.PIPE)
-time.sleep(10)
-Poplog.terminate()
+Q = raw_input("Enter q to quit the pro!")
+if Q.lower() == 'q':
+	Poplog.terminate()
 logcat_file.close()
 errorId = 0
 go_on_id = 0
