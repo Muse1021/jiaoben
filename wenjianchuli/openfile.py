@@ -11,11 +11,17 @@ class thefile(object):
                 print f.read()
                 f.close()
     def writeline(self,strs,writefile):
+        with open(writefile,'a') as f1:
+			f1.writelines(strs)
+			with open(writefile,'r') as f1:
+				print f1.read()
+			
+    def writeline1(self,strs,writefile):
         f1 = open(writefile,'a')
         f1.writelines(strs)
         f1 = open(writefile,'r')
         print f1.read()
-        f1.close()
+        f1.close()		
     def creatandwrite(self,file1,file2):
         fl1 = open(file1,'r')
         str1 = fl1.readline()
@@ -25,7 +31,7 @@ class thefile(object):
         print fl2.read()
 
 
-newfile = thefile("E:\\workspace\\testfile\\")
-newfile.creatandwrite("E:\\workspace\\testfile\\testfile.txt","E:\\workspace\\testfile\\testfile1.doc")
+newfile = thefile("D:\\jiaoben\\trunk\\wenjianchuli\\testfile\\")
+newfile.creatandwrite("D:\\jiaoben\\trunk\\wenjianchuli\\testfile\\testfile.txt","D:\\jiaoben\\trunk\\wenjianchuli\\testfile\\testfile1.doc")
 # newfile.writeline("lixiao","E:\\workspace\\testfile\\testfile.txt")
 # openthefile("txt","E:\\workspace\\testfile\\")
