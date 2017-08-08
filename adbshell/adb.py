@@ -874,4 +874,4 @@ class KeyCode:
 
 if __name__ == '__main__':
     a = AdbTools()
-    print a.get_wifi_password_list()
+    print a.get_devices()
