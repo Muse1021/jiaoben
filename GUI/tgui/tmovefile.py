@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import sys
+import sys,time
 reload(sys)
 sys.setdefaultencoding("utf-8")
 from PyQt4 import QtGui, QtCore
@@ -34,6 +34,7 @@ class Edit(QtGui.QLineEdit):
                 strs =  str(url.toLocalFile()).decode('UTF-8').encode('GBK')
                 self.setText(strs)
             event.acceptProposedAction()
+			#return strs
         else:
             super(Edit,self).dropEvent(event)
 class MyWindow(QtGui.QWidget):
