@@ -47,7 +47,13 @@ class MyWindow(QtGui.QWidget):
         self.apkpath.setText("Change Me!")
         layout = QtGui.QVBoxLayout(self)
         layout.addWidget(self.apkpath)
+        string_list = ['hola muchachos', 'adios amigos', 'hello world', 'good bye']
+        combo = QtGui.QComboBox()
+        combo.addItems(string_list)
+        combo.resize(300, 40)
+        combo.show()
         self.setLayout(layout)
+
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
     window = MyWindow()

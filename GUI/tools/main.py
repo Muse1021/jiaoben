@@ -1,5 +1,6 @@
 # -*-coding: utf-8 -*-
 import sys
+from chosedevices import get_devices
 from PyQt4 import QtGui,QtCore
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -54,6 +55,14 @@ class Exemple(QtGui.QWidget):
         btn_quit.clicked.connect(QtCore.QCoreApplication.instance().quit)
         btn_quit.resize(btn_quit.sizeHint())
         btn_quit.move(300,100)
+        btn_re = QtGui.QPushButton('re',self)
+        btn_re.clicked.connect(self.devices_list)
+        btn_re.resize(btn_quit.sizeHint())
+        btn_re.move(200,100)
+        string_list = ['no device']
+        self.combo = QtGui.QComboBox(self)
+        self.combo.addItems(string_list)
+        self.combo.resize(100, 30)
         self.apkpath = Edit(self)
         self.apkpath.setGeometry(QtCore.QRect(90, 120, 610, 51))
         self.apkpath.setText("")
@@ -75,6 +84,11 @@ class Exemple(QtGui.QWidget):
     def btn_event(self):
         install = "adb install -r "+self.apkpath.text()
         print install
+    def devices_list(self):
+        str = get_devices()
+        print str
+        self.combo.addItems(str)
+
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     ic = Exemple()
