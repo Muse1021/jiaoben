@@ -1,7 +1,7 @@
 # -*-coding: utf-8 -*-
-import sys
 from chosedevices import get_devices
 from PyQt4 import QtGui,QtCore
+import os,subprocess,time,re,sys
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
@@ -82,12 +82,17 @@ class Exemple(QtGui.QWidget):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
     def btn_event(self):
-        install = "adb install -r "+self.apkpath.text()
-        print install
+        print "3232323: " ,self.combo.currentText()
+        install_cmd = "adb -s %s install -r "%(self.lists[str(self.combo.currentText())])+self.apkpath.text()
+        print(install_cmd)
+        Poplog = subprocess.Popen(str(install_cmd), shell=True, stdout=subprocess.PIPE).stdout
+        Poplog.readlines()
     def devices_list(self):
-        str = get_devices()
-        print str
-        self.combo.addItems(str)
+        self.lists = get_devices()
+        strs = []
+        for i in self.lists.keys():
+            strs.append(i)
+        self.combo.addItems(strs)
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
