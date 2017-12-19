@@ -40,6 +40,8 @@ class Example(QtGui.QWidget):
             print "1"
         else:
             print "2"
+    def
+
     def compare(self):
         if int(self.Teidt.text()) > 1:
             self.MEvent()

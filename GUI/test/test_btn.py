@@ -30,13 +30,10 @@ class MainStyle(QWidget):
 	def initUI(self):
 		self.resize(500,500)
 		self.setWindowTitle(u'工具')
-		self.btn_setting = QPushButton()
+		self.btn_setting = QPushButton(self)
 		self.btn_setting.setStyleSheet("""QPushButton{background-image:url(./img/icon_cog.png);width:16px;height:16px;padding-top:0px;border:0px;margin-right:15px;}
                                         QPushButton:hover{background-image:url(./img/icon_cogs.png);}""")
         #main布局
-		self.topBarLayout = QtGui.QHBoxLayout()
-		self.topBarLayout.addStretch()
-		self.topBarLayout.addWidget(self.btn_setting,0,Qt.AlignRight | Qt.AlignHCenter)
 		self.show()
 
 
