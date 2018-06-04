@@ -19,7 +19,7 @@ if __name__ == '__main__':
 	#lists1 = check_location("http://cmcdl.cmcm.com/download?cid=5",500)
 	#Probability(lists1,strs)
 	strs ="20180509165339"
-	lists2 = check_location("http://cmcdl.cmcm.com/download?cid=1",500)
+	lists2 = check_location("http://cmcdl.cmcm.com/download?cid=1",50)
 	Probability(lists2)
 	#strs ="opt"
 	#lists3 = check_location("http://cmcdl.cmcm.com/download?cid=3",500)
